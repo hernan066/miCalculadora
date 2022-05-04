@@ -12,22 +12,25 @@ const numeroB = +process.argv[4];
 
 const operators = ["+", "-", "*", "/"];
 
+
+
+
 const calculadora = function (num1, operator, num2) {
   //valido que se ingresen 3 argumentos
   if (process.argv.length !== 5) {
-    console.log("Formato invalido, ingrese numeroA, operador, numeroB");
+    console.log("Error: Formato invalido, ingrese numeroA, operador, numeroB");
     return;
   }
 
   //valido que el operador sea uno de los permitidos
   if (!operators.includes(operator)) {
-    console.log("Operador no valido, ingrese + , - , * , /");
+    console.log("Error: Operador no valido, ingrese + , - , * , /");
     return;
   }
 
   //valido que los datos sean numericos
   if (isNaN(num1) || isNaN(num2)) {
-    console.log("Ingrese solo numeros");
+    console.log("Error: Ingrese solo numeros");
     return;
   }
 
@@ -45,8 +48,10 @@ const calculadora = function (num1, operator, num2) {
   }
 
   //impresion del resultado
-  return console.log(`El resultado de ${num1} ${operator} ${num2} es ${resultado}`);
+  console.log('============================================================')
+  console.log(`              El operacion es: ${num1} ${operator} ${num2} = ${resultado}`);
+  console.log('============================================================')
   
 };
-
+console.clear();
 calculadora(numeroA, operacion, numeroB);
